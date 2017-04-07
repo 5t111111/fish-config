@@ -6,7 +6,7 @@ if type direnv >/dev/null ^/dev/null
             mkdir "$gopath"
         end
 
-        set -x GOPATH "$gopath"
-        set -x PATH "$GOPATH/bin" $PATH
+        set -g fish_user_paths "$gopath" $fish_user_paths
+        set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
     end
 end
