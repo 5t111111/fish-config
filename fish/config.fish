@@ -20,8 +20,12 @@ begin
     popd
 end
 
-# Workaround https://coderwall.com/p/-k_93g/mac-os-x-valueerror-unknown-locale-utf-8-in-python
-set -x LC_ALL en_US.UTF-8
-set -x LANG en_US.UTF-8
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
-thefuck --alias | source
+# Source local specific config
+begin
+    set -l fish_local_config "$HOME/.config/fish/config.local.fish"
+    if test -f $fish_local_config
+        source $fish_local_config
+    end
+end
