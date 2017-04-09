@@ -1,1 +1,1 @@
-alias r 'bin/rails'
+balias r 'bin/rails'
