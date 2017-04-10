@@ -32,6 +32,7 @@ if [ ! -L "${fish_config_dir}" ] && [ ! -e "${fish_config_dir}" ]; then
   echo "Symlink: [${fish_config_dir}] is created."
 else
   echo "Symlink: [${fish_config_dir}] already exists."
+  echo "Please manually remove [${fish_config_dir}] when you want to overwrite it."
 fi
 
 
@@ -40,6 +41,9 @@ cat << EOS
 ================================================================================
 Installation completed!
 ================================================================================
+Recommended way to configure your local specific configuration is
+adding settings in [${fish_config_dir}/config.local.fish]
+instead of [${fish_config_dir}/config.fish].
 EOS
 
 popd > /dev/null
