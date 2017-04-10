@@ -2,7 +2,7 @@ set -g fish_prompt_pwd_dir_length 3
 set -gx EDITOR vim
 
 begin
-    set -l source_dirs aliases profiles
+    set -l source_dirs profiles vendor aliases
     set -l fish_config_dir "$HOME/.config/fish"
 
     pushd $fish_config_dir
