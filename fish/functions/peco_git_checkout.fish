@@ -1,4 +1,4 @@
-function peco_git_checkout -d "Peco source ro checkout branch"
+function peco_git_checkout -d "Peco source to checkout git branch"
     git branch -a | peco "BRANCH>" | tr -d ' ' | read branch
 
     if test -n "$branch"
