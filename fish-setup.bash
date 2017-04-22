@@ -3,6 +3,7 @@
 pushd "$(dirname $0)" > /dev/null
 script_path="$(pwd -P)"
 
+# ==============================================================================
 
 cat << EOS
 
@@ -17,6 +18,7 @@ else
   echo "XDC Base directory: [${XDG_CONFIG_HOME}] already exists"
 fi
 
+# ==============================================================================
 
 cat << EOS
 
@@ -35,6 +37,40 @@ else
   echo "Please manually remove [${fish_config_dir}] when you want to overwrite it."
 fi
 
+# ==============================================================================
+
+cat << EOS
+
+================================================================================
+Installing fisherman
+================================================================================
+EOS
+
+fisherman_install_path="${HOME}/.config/fish/functions/fisher.fish"
+
+curl -f -Lo ${fisherman_install_path} --create-dirs git.io/fisher > /dev/null 2>&1
+
+rc=$?
+
+if [ $rc != 0 ]; then
+  echo "Failed to install fisherman [$rc]"
+  exit $rc
+fi
+
+echo "fisherman is successfully installed to [${fisherman_install_path}]."
+
+# ==============================================================================
+
+cat << EOS
+
+================================================================================
+Installing plugins
+================================================================================
+EOS
+
+fish -c fisher
+
+# ==============================================================================
 
 cat << EOS
 
@@ -44,6 +80,7 @@ Installation completed!
 Recommended way to configure your local specific configuration is
 adding settings in [${fish_config_dir}/config.local.fish]
 instead of [${fish_config_dir}/config.fish].
+
 EOS
 
 popd > /dev/null
