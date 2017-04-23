@@ -1,9 +1,9 @@
 function fish_user_key_bindings
-    bind \cr peco_select_history
-    bind \cg peco_select_repository
-    bind \ef peco_find
-    bind \eo peco_git_checkout
-    bind \es peco_git_status
-    bind \ek peco_kill_process
-    bind \ee peco_select_emoji
+    bind \cr fzf_select_history
+    bind \cg fzf_select_repository
+    bind \ef fzf_find
+    bind \eo fzf_git_checkout
+    bind \es fzf_git_status
+    bind \ek fzf_kill_process
+    bind \ee fzf_select_emoji
 end
