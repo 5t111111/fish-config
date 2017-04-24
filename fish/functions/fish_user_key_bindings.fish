@@ -1,3 +1,6 @@
+# \c : control + key 
+# \e : option + key
+
 function fish_user_key_bindings
     bind \cr fzf_select_history
     bind \cg fzf_select_repository
