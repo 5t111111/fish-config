@@ -29,3 +29,9 @@ begin
         source $fish_local_config
     end
 end
+
+# Aquarium theme prompt configuration
+# set -g aquarium_nogreeting 'true'
+set -g aquarium_show_ruby_version 'true'
+set -g aquarium_show_node_version 'true'
+# set -g aquarium_no_right_prompt 'true'
