@@ -8,7 +8,28 @@ script_path="$(pwd -P)"
 cat << EOS
 
 ================================================================================
-Setup XDG Base Directory
+Checking fish installation
+================================================================================
+EOS
+
+if type fish > /dev/null 2>&1 ; then
+  echo OK
+else
+  cat << EOS
+fish is not found.
+
+Please install fish before executing this setup script.
+See https://fishshell.com for further details.
+EOS
+  exit 1
+fi
+
+# ==============================================================================
+
+cat << EOS
+
+================================================================================
+Setting up XDG Base Directory
 ================================================================================
 EOS
 
