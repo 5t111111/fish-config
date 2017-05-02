@@ -22,13 +22,6 @@ end
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
-# Aquarium theme prompt configuration
-# set -g aquarium_nogreeting 'true'
-set -g aquarium_show_ruby_version 'true'
-set -g aquarium_show_python_version 'true'
-set -g aquarium_show_node_version 'true'
-# set -g aquarium_no_right_prompt 'true'
-
 # Source local specific config
 begin
     set -l fish_local_config "$HOME/.config/fish/config.local.fish"
