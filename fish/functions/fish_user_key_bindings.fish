@@ -1,4 +1,4 @@
-# \c : control + key 
+# \c : control + key
 # \e : option + key
 
 function fish_user_key_bindings
