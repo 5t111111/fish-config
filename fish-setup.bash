@@ -55,7 +55,13 @@ if [ ! -L "${fish_config_dir}" ] && [ ! -e "${fish_config_dir}" ]; then
   echo "Symlink: [${fish_config_dir}] is created."
 else
   echo "Symlink: [${fish_config_dir}] already exists."
-  echo "Please manually remove [${fish_config_dir}] when you want to overwrite it."
+  read -p "Do you really want to remove and re-create [${fish_config_dir}]? (y/n) " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    rm "${fish_config_dir}"
+    ln -s "${script_path}/fish" "${fish_config_dir}"
+    echo "Symlink: [${fish_config_dir}] is created."
+  fi
 fi
 
 # ==============================================================================
@@ -67,18 +73,25 @@ Installing fisherman
 ================================================================================
 EOS
 
-fisherman_install_path="${HOME}/.config/fish/functions/fisher.fish"
-
-curl -f -Lo ${fisherman_install_path} --create-dirs git.io/fisher > /dev/null 2>&1
-
+fish -c 'fisher -v' > /dev/null 2>&1
 rc=$?
 
-if [ $rc != 0 ]; then
-  echo "Failed to install fisherman [$rc]"
-  exit $rc
-fi
+if [ $rc = 0 ]; then
+  echo "fisherman is already installed"
+else
+  fisherman_install_path="${HOME}/.config/fish/functions/fisher.fish"
 
-echo "fisherman is successfully installed to [${fisherman_install_path}]."
+  curl -f -Lo ${fisherman_install_path} --create-dirs git.io/fisher > /dev/null 2>&1
+
+  rc=$?
+
+  if [ $rc != 0 ]; then
+    echo "Failed to install fisherman [$rc]"
+    exit $rc
+  fi
+
+  echo "fisherman is successfully installed to [${fisherman_install_path}]."
+fi
 
 # ==============================================================================
 
@@ -89,7 +102,7 @@ Installing plugins
 ================================================================================
 EOS
 
-fish -c fisher
+fish -c 'fisher'
 
 # ==============================================================================
 
