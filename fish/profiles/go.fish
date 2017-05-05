@@ -14,5 +14,7 @@ if type go >/dev/null ^/dev/null
 
         set -gx fish_user_paths "$go_path" $fish_user_paths
         set -gx fish_user_paths "$go_path/bin" $fish_user_paths
+
+        set -x GOPATH "$go_path"
     end
 end
