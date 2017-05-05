@@ -1,12 +1,18 @@
-if type direnv >/dev/null ^/dev/null
+if type go >/dev/null ^/dev/null
     begin
-        set -l gopath "$HOME/go"
+        set -l go_path ''
 
-        if not test -d "$gopath"
-            mkdir "$gopath"
+        if set -q GOPATH
+            set go_path "$GOPATH"
+        else
+            set go_path "$HOME/go"
         end
 
-        set -g fish_user_paths "$gopath" $fish_user_paths
-        set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+        if not test -d "$go_path"
+            mkdir "$go_path"
+        end
+
+        set -gx fish_user_paths "$go_path" $fish_user_paths
+        set -gx fish_user_paths "$go_path/bin" $fish_user_paths
     end
 end
