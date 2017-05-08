@@ -22,7 +22,7 @@ end
 
 # Homebrew's sbin
 if not contains "/usr/local/sbin" $fish_user_paths
-    set -U fish_user_paths "/usr/local/sbin" $fish_user_paths
+    set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 end
 
 # Initalize pluggable environent settings
