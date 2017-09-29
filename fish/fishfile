@@ -1,5 +1,7 @@
+fisherman/await
 unreliable-angels/direnv_init
 unreliable-angels/emoji_codes
+fisherman/fnm
 unreliable-angels/fuck
 unreliable-angels/fzf_docker_armyknife
 unreliable-angels/fzf_find
@@ -10,8 +12,11 @@ unreliable-angels/fzf_kill_process
 unreliable-angels/fzf_select_emoji
 unreliable-angels/fzf_select_history
 unreliable-angels/fzf_select_repository
+fisherman/get_file_age
 fisherman/getopts
 unreliable-angels/go_init
+fisherman/last_job_id
+fisherman/menu
 unreliable-angels/night_cruising_prompt
 unreliable-angels/rbenv_init
 unreliable-angels/yarn_init
