@@ -20,6 +20,11 @@ begin
     popd
 end
 
+# Add /usr/local/bin to paths at first
+if not contains "/usr/local/bin" $fish_user_paths
+    set -g fish_user_paths "/usr/local/bin" $fish_user_paths
+end
+
 # Homebrew's sbin
 if not contains "/usr/local/sbin" $fish_user_paths
     set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
