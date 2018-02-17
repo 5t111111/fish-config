@@ -40,6 +40,11 @@ if not contains "/usr/local/go/bin" $fish_user_paths
     set -g fish_user_paths "/usr/local/go/bin" $fish_user_paths
 end
 
+# Rust $HOME/.cargo/bin
+if not contains "$HOME/.cargo/bin" $fish_user_paths
+    set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
+end
+
 # Initalize pluggable environent settings
 go_init
 rbenv_init
