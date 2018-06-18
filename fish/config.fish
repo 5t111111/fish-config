@@ -45,6 +45,11 @@ if not contains "$HOME/.cargo/bin" $fish_user_paths
     set -g fish_user_paths "$HOME/.cargo/bin" $fish_user_paths
 end
 
+# PHP $HOME/.composer/vendor/bin
+if not contains "$HOME/.composer/vendor/bin" $fish_user_paths
+    set -g fish_user_paths "$HOME/.composer/vendor/bin" $fish_user_paths
+end
+
 # fnm PATH (unexpectedly set after /usr/local/bin
 set -g fish_user_paths "$HOME/.config/fnm/bin" $fish_user_paths
 
