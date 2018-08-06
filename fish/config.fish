@@ -53,6 +53,11 @@ end
 # fnm PATH (unexpectedly set after /usr/local/bin
 set -g fish_user_paths "$HOME/.config/fnm/bin" $fish_user_paths
 
+# Manually installed fzf
+if not contains "$HOME/.fzf/bin" $fish_user_paths
+    set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
+end
+
 # Initalize pluggable environent settings
 go_init
 rbenv_init
