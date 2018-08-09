@@ -64,6 +64,15 @@ rbenv_init
 direnv_init
 yarn_init
 
+# Launch GPG Agent or connect to it
+set -x GPG_TTY (tty)
+export GPG_AGENT_INFO="$HOME/.gnupg/S.gpg-agent:0:1"
+if [ ! (pgrep -x -u $USER "gpg-agent" | head -1) ]
+    set -el DISPLAY
+    echo "Invoking gpg-agent"
+    gpg-connect-agent /bye
+end
+
 # Source local specific config
 begin
     set -l fish_local_config "$HOME/.config/fish/config.local.fish"
