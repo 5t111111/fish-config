@@ -58,6 +58,13 @@ if not contains "$HOME/.fzf/bin" $fish_user_paths
     set -g fish_user_paths "$HOME/.fzf/bin" $fish_user_paths
 end
 
+# The latest Swift Toolchain
+
+if not contains "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin" $fish_user_paths
+    set -g fish_user_paths "/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin" $fish_user_paths
+end
+
+
 # Initalize pluggable environent settings
 go_init
 rbenv_init
